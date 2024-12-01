@@ -1,0 +1,26 @@
+{
+  "name": "jstask",
+  "version": "1.0.0",
+  "description": "This project demonstrates Mobile Automation using Appium and JavaScript programming language. It used WebDriverJS project and explains how to develop test in Visual Studio Code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Omar Elkhayal",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.27.0",
+    "webdriverio": "^9.4.0"
+  },
+  "devDependencies": {
+    "@wdio/allure-reporter": "^9.2.14",
+    "@wdio/appium-service": "^9.4.1",
+    "@wdio/cli": "^9.4.1",
+    "@wdio/cucumber-framework": "^9.3.1",
+    "@wdio/local-runner": "^9.4.1",
+    "allure-commandline": "^2.32.0",
+    "appium": "^2.12.2",
+    "appium-uiautomator2-driver": "^3.9.1"
+  }
+}
