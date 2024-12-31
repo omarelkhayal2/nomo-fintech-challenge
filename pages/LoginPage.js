@@ -30,12 +30,20 @@ class LoginPage {
     get okButton(){
         return $('//android.widget.Button[@resource-id="android:id/button1"]');
     }
-    get errorMessageLogin(){
-       // return $('//android.widget.TextView[@text="Sorry, this user has been locked out."]');
-        //android.widget.TextView[@text="Sorry, this user has been locked out."]
-        //android.widget.TextView[@text="Password is required"]
-        //android.widget.TextView[@text="Username is required"]
+
+    get errorMessageLogin() {
+        // Generic selector for any error message
+        return $('//android.widget.TextView[contains(@text, "Sorry") or contains(@text, "Password is required") or contains(@text, "Username is required")]');
     }
+    
+    async getErrorMessageText() {
+        // Wait for the error message to be displayed
+        await this.errorMessageLogin.waitForDisplayed({ timeout: 5000 }); 
+        // Get the text of the displayed error message
+        const errorText = await this.errorMessageLogin.getText();
+        return errorText;
+    }
+    
 
     async login(username, password) {
         await this.usernameField.setValue(username);

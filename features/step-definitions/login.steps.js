@@ -23,7 +23,6 @@ Then('the user logs out', async () => {
     await LoginPage.openLogoutPopup();
     await LoginPage.logout();
     await LoginPage.verifyLogout();
-    //assert.ok(isDisplayed, 'Products page is not displayed');
 });
 Then ('the user should see the login page', async () => {
     const isDisplayed = await LoginPage.isLoginButtonDisplayed();
@@ -31,5 +30,12 @@ Then ('the user should see the login page', async () => {
 });
 
 Then('an error message should be displayed', async () => {
-    // Implement error message verification
+    const errorText = await LoginPage.getErrorMessageText();
+    console.log(`Error message displayed: ${errorText}`);
+    assert.ok(
+        errorText === "Sorry, this user has been locked out." || 
+        errorText === "Password is required" || 
+        errorText === "Username is required",
+        `Unexpected error message: ${errorText}`
+    );
 });
